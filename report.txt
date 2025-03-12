@@ -1,0 +1,47 @@
+_______________________________How PCA Affects Classification Performance:______________________________________________________________
+
+How PCA Affects Classification Performance:
+	No PCA (Direct FDA):
+		FDA_LDA:
+			Train Accuracy: 0.973
+			Test Accuracy: 0.957
+			Not much drop from training to testing, so it’s generalizing well.
+			Class 1 Precision (0.916) is a bit low, so it's getting some false positives.
+		FDA_QDA:
+
+			Train Accuracy: 0.963
+			Test Accuracy: 0.967
+			QDA’s doing better than LDA, because it can handle more complex class boundaries.
+			Pretty balanced performance across all classes.
+			
+	PCA with 95% Variance (PCA95_LDA):
+	
+		Train Accuracy: 0.997
+		Test Accuracy: 0.967
+		Highest train accuracy so far, with most precesion.
+		Class-wise Breakdown:
+			Class 0 is nearly perfect with F1 of 0.995.
+			Class 2’s Recall (0.910) is a bit low, so it’s missing some true positives.
+			Overall, great balance, and noise reduction from PCA.
+		
+	PCA with 90% Variance (PCA90_LDA):
+	
+		Train Accuracy: 0.987
+		Test Accuracy: 0.957
+		slightly lower accuracy than PCA90_LDA and a little less overfitting.
+		Class-wise Breakdown:
+			Class 1 and Class 2 have slightly better Precision and Recall compared to PCA95.
+			Class 0’s performance stays top-notch.
+			This one seems to have the best balance overall—enough components to keep useful info without too much noise.
+		
+	PCA with 2 Components (PCA2_LDA):
+	
+		Train Accuracy: 0.913
+		Test Accuracy: 0.937
+		Lowest Accuracy among all the classifiers. Looks like 2 components just aren’t enough to capture the info.
+		Class-wise Breakdown:
+			Class 2 has the lowest F1 (0.908) among all models, so it’s struggling with this class the most.
+			Class 1 also has a lower F1 compared to other models, meaning it’s misclassifying more.
+			This confirms that oversimplifying the data isn’t doing the model any favors.
+
+________________________________________________________________________________________________________________________________________________________
